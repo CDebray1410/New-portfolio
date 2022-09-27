@@ -1,0 +1,25 @@
+.background-purple {
+    background-color: var(--color-purple);
+}
+.background-callToAction {
+    background-color: var(--color-callToAction);
+}
+.background-dblue {
+    background-color: var(--color-dblue);
+}
+
+.color-purple {
+    color: var(--color-purple);
+}
+.color-callToAction {
+    color: var(--color-callToAction);
+}
+.color-dblue {
+    color: var(--color-dblue);
+}
+.color-ltext {
+    color: var(--color-ltext);
+}
+.color-text {
+    color: var(--color-text);
+}

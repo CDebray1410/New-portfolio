@@ -1,0 +1,30 @@
+:root {
+    --font-sm: 17px;
+    --font-base: 20px;
+    --font-lg: 25px;
+    --font-xl: 30px;
+    --font-xxl: 40px;
+
+    --color-background: #171717;
+    --color-dblue: #4717F6;
+    --color-purple: #7152EC;
+    --color-callToAction: #A239CA;
+    --color-ltext: #CDBDB9;
+    --color-text: #E7DFDD;
+}
+@import url('./globals.css');
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-size: var(--font-base);
+}
+
+.cta-button {
+    background-color: var(--color-callToAction);
+    color: var(--color-text);
+    border-radius: 12px;
+    padding: 17px 30px;
+    font-size: 25px;
+    font-weight: bold;
+}
