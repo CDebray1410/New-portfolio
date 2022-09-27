@@ -1,0 +1,20 @@
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-size: var(--font-base);
+}
+
+main {
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+
+.cta-button {
+    background-color: var(--color-callToAction);
+    color: var(--color-text);
+    border-radius: 12px;
+    padding: 17px 30px;
+    font-size: 25px;
+    font-weight: bold;
+}
