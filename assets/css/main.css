@@ -11,7 +11,78 @@
     --color-callToAction: #A239CA;
     --color-ltext: #CDBDB9;
     --color-text: #E7DFDD;
+
+    --icon-xs: 30px;
+    --icon-sm: 32px;
+    --icon-lg: 34px;
+    --icon-xl: 40px;
 }
 
 @import url('./globals.css');
 @import url('./base.css');
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-size: var(--font-base);
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+
+.cta-button {
+    background-color: var(--color-callToAction);
+    color: var(--color-text);
+    border-radius: 12px;
+    padding: 17px 30px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.icon-lg {
+    width: var(--icon-lg);
+    height: var(--icon-lg);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px rgba(255, 255, 255, 0.2) solid;
+    height: 60px;
+}
+nav div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav div a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+nav .navbar__right_side a {
+    padding: 5px 12px;
+}
+nav .navbar__left_side a {
+    padding: 5px 25px;
+}
+
+nav div a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

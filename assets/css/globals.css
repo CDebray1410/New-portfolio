@@ -23,3 +23,8 @@
 .color-text {
     color: var(--color-text);
 }
+
+.icon-lg {
+    width: var(--icon-lg);
+    height: var(--icon-lg);
+}
