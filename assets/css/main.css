@@ -5,7 +5,7 @@
     --font-xl: 30px;
     --font-xxl: 40px;
 
-    --color-background: #171717;
+    --color-background: #0E0B16;
     --color-dblue: #4717F6;
     --color-purple: #7152EC;
     --color-callToAction: #A239CA;
@@ -46,6 +46,14 @@ main {
     width: 80%;
     margin: auto;
     margin-top: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+ul li {
+    padding: 10px 0;
 }
 
 main section {
@@ -104,8 +112,12 @@ main section {
     align-items: center;
 }
 
-.centered-section-items div.col-6 {
+.col-6 {
     width: 50%;
+}
+
+.col-4 {
+    width: 33%;
 }
 
 .centered-image-block {
@@ -179,4 +191,32 @@ nav div a:hover {
     height: 3px;
     margin: 10px auto;
     background-color: var(--color-purple);
+}
+
+/* SKILLS */
+
+.skills_section {
+
+}
+.skills_section_dropdown {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.skills_section_dropdown div {
+    text-align: center;
+    width: 100%;
+}
+.skills_section_dropdown div:nth-child(2) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skills_section_dropdown .dropdown-content {
+    display: none;
+}
+.skills_section_dropdown .dropdown-content.active {
+    display: block;
 }
