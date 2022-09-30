@@ -21,6 +21,8 @@
 @import url('./globals.css');
 @import url('./base.css');
 
+/* GLOBALS */
+
 body {
     background-color: var(--color-background);
     color: var(--color-text);
@@ -40,23 +42,64 @@ a {
 
 main {
     display: flex;
+    flex-wrap: wrap;
     width: 90%;
     margin: auto;
+    margin-top: 10px;
 }
 
-.cta-button {
+main section {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.section_title {
+    width: 100%;
+    text-align: center;
+    padding: 55px 0 15px 0;
+}
+
+.cta_button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: var(--color-callToAction);
     color: var(--color-text);
     border-radius: 12px;
-    padding: 17px 30px;
-    font-size: 25px;
+    padding: 11px 30px;
+    font-size: var(--font-lg);
     font-weight: bold;
+    width: 220px;
 }
 
 .icon-lg {
     width: var(--icon-lg);
     height: var(--icon-lg);
 }
+
+.text-lg {
+    font-size: var(--font-lg);
+}
+
+.text-xl {
+    font-size: var(--font-xl);
+}
+
+.text-xxl {
+    font-size: var(--font-xxl);
+}
+
+.text-subtitle {
+    font-weight: 200;
+    font-style: italic;
+}
+
+.color-white {
+    color: white;
+}
+
+/* NAVBAR */
 
 nav {
     display: flex;
@@ -86,3 +129,24 @@ nav .navbar__left_side a {
 nav div a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
+
+/* HOME */
+
+.home_section {
+    align-items: center;
+}
+
+.home_section > div {
+    width: 50%;
+}
+
+.home_section > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home_section div:nth-child(2) img {
+    width: 250px;
+}
+
+/* ABOUT */
