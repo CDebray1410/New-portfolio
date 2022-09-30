@@ -1,6 +1,6 @@
 window.onload = function () {
-    let dropdownState = "down"
     const dropdownButtons = document.querySelectorAll('.dropdown-button');
+    const qualificationButtons = document.querySelectorAll('.qualification_section div.col-6');
 
     dropdownButtons.forEach(button => {
         button.addEventListener('click', function () {
@@ -19,4 +19,19 @@ window.onload = function () {
             button.nextElementSibling.classList.toggle('active')
         })
     });
+
+    for (let index = 0; index < qualificationButtons.length; index++) {
+        
+        const qualificationCategoryButton = qualificationButtons[index];
+        qualificationCategoryButton.addEventListener('click', function () {
+            if (qualificationCategoryButton.classList.contains('color-purple')) {
+                return;
+            }
+            // 0 work 1 Qualification
+            const previousSelectedQualficationCategoryButton = index === 1 ? qualificationButtons[0] : qualificationButtons[1];
+            previousSelectedQualficationCategoryButton.classList.toggle('color-purple');
+            qualificationCategoryButton.classList.toggle('color-purple');
+
+        })
+    }
 }

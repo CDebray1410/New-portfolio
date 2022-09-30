@@ -60,12 +60,16 @@ main section {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    padding: 50px 0;
 }
 
 .section_title {
     width: 100%;
     text-align: center;
-    padding: 55px 0 15px 0;
+    padding: 15px 0;
+    font-size: var(--font-xxl);
+    font-weight: bold;
+    font-family: sans-serif;
 }
 
 .cta_button {
@@ -107,6 +111,9 @@ main section {
 .color-white {
     color: white;
 }
+.color-purple {
+    color: var(--color-purple);
+}
 
 .centered-section-items {
     align-items: center;
@@ -120,7 +127,7 @@ main section {
     width: 33%;
 }
 
-.centered-image-block {
+.centered-section-item-block {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -195,9 +202,6 @@ nav div a:hover {
 
 /* SKILLS */
 
-.skills_section {
-
-}
 .skills_section_dropdown {
     display: flex;
     flex-wrap: wrap;
@@ -207,11 +211,12 @@ nav div a:hover {
     text-align: center;
     width: 100%;
 }
-.skills_section_dropdown div:nth-child(2) {
+.skills_section_dropdown .dropdown-button {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .skills_section_dropdown .dropdown-content {
@@ -219,4 +224,16 @@ nav div a:hover {
 }
 .skills_section_dropdown .dropdown-content.active {
     display: block;
+}
+
+/* QUALIFICATION */
+
+.qualification_section div.col-6 {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-xl);
+    cursor: pointer;
+}
+.qualification_section div.col-6 span {
+    padding-left: 15px;
 }
