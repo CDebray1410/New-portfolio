@@ -3,6 +3,14 @@ window.onload = function () {
     const qualificationButtons = document.querySelectorAll('.qualification_section div.col-6');
     const qualificationInfosContainer = document.getElementById('qualification_section_infos');
 
+    function elementFromHtml(html) {
+        let templateElement = document.createElement('template');
+        templateElement.innerHTML = html.trim();
+        console.log(templateElement.content)
+
+        return templateElement.content.firstElementChild;
+    }
+
     // Refacto import json from another file
     const workInfos = [
         {
@@ -59,9 +67,18 @@ window.onload = function () {
         })
     }
 
-    let string = ""
+    let infosBoxString = ""
     workInfos.forEach(element => {
-        string += `${element.title} - `
+        infosBoxString += `
+            <div class="qualification_section_infos__box">
+                <span class="qualification_section_infos__box__pellet"></span>
+                <div>
+                    <p>${element.title}</p>
+                    <p>${element.companyOrSchool}</p>
+                </div>
+                <p>${element.start} - ${element.end}</p>
+            </div>
+        `
     });
-    qualificationInfosContainer.innerHTML = string;
+    qualificationInfosContainer.innerHTML = infosBoxString;
 }

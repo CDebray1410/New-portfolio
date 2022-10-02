@@ -228,6 +228,10 @@ nav div a:hover {
 
 /* QUALIFICATION */
 
+.qualification_section {
+    font-family: sans-serif;
+}
+
 .qualification_section div.col-6 {
     display: flex;
     align-items: center;
@@ -236,4 +240,43 @@ nav div a:hover {
 }
 .qualification_section div.col-6 span {
     padding-left: 15px;
+}
+
+.qualification_section #qualification_section_infos {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.qualification_section .qualification_section_infos__box {
+    padding-top: 55px;
+    position: relative;
+}
+
+.qualification_section_infos__box__pellet {
+    position: absolute;
+    left: 45%;
+    top: 35px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-purple);
+    border-radius: 50%;
+}
+
+.qualification_section .qualification_section_infos__box div:first-of-type p:first-child {
+    font-weight: bold;
+    padding: 0 0;
+    margin: 0;
+    margin-top: 25px;
+}
+.qualification_section .qualification_section_infos__box div:first-of-type p:last-child {
+    font-style: oblique;
+    font-weight: 300;
+    margin: 0;
+    margin-top: 5px;
+}
+.qualification_section .qualification_section_infos__box > p:last-child {
+    font-weight: lighter;
+    font-style: italic;
+    color: var(--color-ltext);
 }
