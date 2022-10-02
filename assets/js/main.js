@@ -3,7 +3,9 @@ window.onload = function () {
     const qualificationButtons = document.querySelectorAll('.qualification_section div.col-6');
     const qualificationInfosContainer = document.getElementById('qualification_section_infos');
     const portfolioInfosContainer = document.getElementById('portfolio_section__projects');
-    const projectImagesDirectoryPath = './assets/images/project_images',
+    const projectModal = document.getElementById('project_modal')
+    const projectModalClose = document.getElementById('project_modal__content__close')
+    const projectImagesDirectoryPath = './assets/images/project_images';
 
     // Refacto import json from another file
     const workInfos = [
@@ -37,10 +39,10 @@ window.onload = function () {
     const projectsInfos = [
         {
             'tag': 'Front',
-            'images': [
-                'image' = '',
-                'illustration' = ''
-            ],
+            'images': {
+                'image': '',
+                'illustration': ''
+            },
             'name': 'Quizz game',
             'type': 'Type',
             'infos': [
@@ -56,7 +58,7 @@ window.onload = function () {
             'description': 'A quizz game',
             'link': ''
         }
-    ]
+    ];
 
     dropdownButtons.forEach(button => {
         button.addEventListener('click', function () {
@@ -148,7 +150,12 @@ window.onload = function () {
                 </div>
             `;
         });
+
+        portfolioInfosContainer.innerHTML = portfolioSectionString;
     }
 
-    portfolioInfosContainer.innerHTML = portfolioSectionString;
+
+    projectModalClose.addEventListener('click', function () {
+        project_modal.classList.toggle('active');
+    })
 }
