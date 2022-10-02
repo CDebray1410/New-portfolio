@@ -3,14 +3,6 @@ window.onload = function () {
     const qualificationButtons = document.querySelectorAll('.qualification_section div.col-6');
     const qualificationInfosContainer = document.getElementById('qualification_section_infos');
 
-    function elementFromHtml(html) {
-        let templateElement = document.createElement('template');
-        templateElement.innerHTML = html.trim();
-        console.log(templateElement.content)
-
-        return templateElement.content.firstElementChild;
-    }
-
     // Refacto import json from another file
     const workInfos = [
         {
@@ -32,6 +24,12 @@ window.onload = function () {
             'companyOrSchool': 'Epitech',
             'start': '2020',
             'end': '2022'
+        },
+        {
+            'title': 'Developer formation',
+            'companyOrSchool': 'ESGI',
+            'start': '2022',
+            'end': '2023'
         }
     ]
 
@@ -53,6 +51,8 @@ window.onload = function () {
         })
     });
 
+    fillQualificationInfoBox(workInfos);
+
     for (let index = 0; index < qualificationButtons.length; index++) {
         const qualificationCategoryButton = qualificationButtons[index];
 
@@ -64,21 +64,32 @@ window.onload = function () {
             const previousSelectedQualficationCategoryButton = index === 1 ? qualificationButtons[0] : qualificationButtons[1];
             previousSelectedQualficationCategoryButton.classList.toggle('color-purple');
             qualificationCategoryButton.classList.toggle('color-purple');
+            
+            if (index === 0) {
+                fillQualificationInfoBox(workInfos);
+                return;
+            }
+
+            fillQualificationInfoBox(educationInfos);
         })
     }
 
-    let infosBoxString = ""
-    workInfos.forEach(element => {
-        infosBoxString += `
-            <div class="qualification_section_infos__box">
-                <span class="qualification_section_infos__box__pellet"></span>
-                <div>
-                    <p>${element.title}</p>
-                    <p>${element.companyOrSchool}</p>
+    function fillQualificationInfoBox(qualificationInfos) {
+        qualificationInfosContainer.innerHTML = "";
+
+        let infosBoxString = ""
+        qualificationInfos.forEach(qualification => {
+            infosBoxString += `
+                <div class="qualification_section_infos__box">
+                    <span class="qualification_section_infos__box__pellet"></span>
+                    <div>
+                        <p>${qualification.title}</p>
+                        <p>${qualification.companyOrSchool}</p>
+                    </div>
+                    <p>${qualification.start} - ${qualification.end}</p>
                 </div>
-                <p>${element.start} - ${element.end}</p>
-            </div>
-        `
-    });
-    qualificationInfosContainer.innerHTML = infosBoxString;
+            `
+        });
+        qualificationInfosContainer.innerHTML = infosBoxString;
+    }
 }
