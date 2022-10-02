@@ -2,6 +2,8 @@ window.onload = function () {
     const dropdownButtons = document.querySelectorAll('.dropdown-button');
     const qualificationButtons = document.querySelectorAll('.qualification_section div.col-6');
     const qualificationInfosContainer = document.getElementById('qualification_section_infos');
+    const portfolioInfosContainer = document.getElementById('portfolio_section__projects');
+    const projectImagesDirectoryPath = './assets/images/project_images',
 
     // Refacto import json from another file
     const workInfos = [
@@ -30,6 +32,29 @@ window.onload = function () {
             'companyOrSchool': 'ESGI',
             'start': '2022',
             'end': '2023'
+        }
+    ]
+    const projectsInfos = [
+        {
+            'tag': 'Front',
+            'images': [
+                'image' = '',
+                'illustration' = ''
+            ],
+            'name': 'Quizz game',
+            'type': 'Type',
+            'infos': [
+                '2 week duration',
+                'In a group of 3',
+                'Quizz website'
+            ],
+            'languages': [
+                'PHP',
+                'Symfony',
+                'MySQL'
+            ],
+            'description': 'A quizz game',
+            'link': ''
         }
     ]
 
@@ -92,4 +117,38 @@ window.onload = function () {
         });
         qualificationInfosContainer.innerHTML = infosBoxString;
     }
+
+    function fillPortfolioSection(projectsInfos) {
+        let portfolioSectionString = ""
+
+        projectsInfos.forEach(project => {
+            portfolioSectionString += `
+                <div class="portfolio_section__projects__card__top"
+                    data-tag="${project.tag}"
+                    data-images="${project.images}"
+                    data-name="${project.name}"
+                    data-type="${project.type}"
+                    data-infos="${project.infos}"
+                    data-languages="${project.languages}"
+                    data-description="${project.description}"
+                    data-link="${project.link}"
+                >
+                    <div></div>
+                    <div class="centered-section-item-block">
+                        <img src="./assets/images/tags-purple.png" alt="Icon representing a tag" class="icon-xs" />
+                        <span>${project.tag}</span>
+                    </div>
+                    <img src="${project.image}" alt="image of the project '${project.name}'" />
+                </div>
+                <div class="portfolio_section__projects__card__bottom background-project-box">
+                    <p>
+                        ${project.name}
+                    </p>
+                    <p>${project.type}</p>
+                </div>
+            `;
+        });
+    }
+
+    portfolioInfosContainer.innerHTML = portfolioSectionString;
 }
