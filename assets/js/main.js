@@ -5,7 +5,7 @@ window.onload = function () {
     const portfolioInfosContainer = document.getElementById('portfolio_section__projects');
     const projectModal = document.getElementById('project_modal')
     const projectModalClose = document.getElementById('project_modal__content__close')
-    const projectImagesDirectoryPath = './assets/images/project_images';
+    const projectImagesDirectoryPath = './assets/images/projects';
 
     // Refacto import json from another file
     const workInfos = [
@@ -125,33 +125,97 @@ window.onload = function () {
 
         projectsInfos.forEach(project => {
             portfolioSectionString += `
-                <div class="portfolio_section__projects__card__top"
-                    data-tag="${project.tag}"
-                    data-images="${project.images}"
-                    data-name="${project.name}"
-                    data-type="${project.type}"
-                    data-infos="${project.infos}"
-                    data-languages="${project.languages}"
-                    data-description="${project.description}"
-                    data-link="${project.link}"
-                >
-                    <div></div>
-                    <div class="centered-section-item-block">
-                        <img src="./assets/images/tags-purple.png" alt="Icon representing a tag" class="icon-xs" />
-                        <span>${project.tag}</span>
+                <div class="portfolio_section__projects__card">
+                    <div class="portfolio_section__projects__card__top"
+                        data-tag="${project.tag}"
+                        data-images="${project.images}"
+                        data-name="${project.name}"
+                        data-type="${project.type}"
+                        data-infos="${project.infos}"
+                        data-languages="${project.languages}"
+                        data-description="${project.description}"
+                        data-link="${project.link}"
+                    >
+                        <div></div>
+                        <div class="centered-section-item-block">
+                            <img src="./assets/images/icons/tags-purple.png" alt="Icon representing a tag" class="icon-xs" />
+                            <span>${project.tag}</span>
+                        </div>
+                        <img src="${project.image}" alt="image of the project '${project.name}'" />
                     </div>
-                    <img src="${project.image}" alt="image of the project '${project.name}'" />
-                </div>
-                <div class="portfolio_section__projects__card__bottom background-project-box">
-                    <p>
-                        ${project.name}
-                    </p>
-                    <p>${project.type}</p>
+                    <div class="portfolio_section__projects__card__bottom background-project-box">
+                        <p>
+                            ${project.name}
+                        </p>
+                        <p>${project.type}</p>
+                    </div>
                 </div>
             `;
         });
 
         portfolioInfosContainer.innerHTML = portfolioSectionString;
+    }
+
+    fillPortfolioSection(projectsInfos);
+
+    const portfolioCards = document.getElementsByClassName('portfolio_section__projects__card');
+    for (let i = 0; i < portfolioCards.length; i++) {
+        portfolioCards[i].addEventListener('click', function () {
+            const cardInfos = portfolioCards[i].querySelector('.portfolio_section__projects__card__top');
+            const cardInfosTag = cardInfos.dataset.tag;
+            const cardInfosImages = cardInfos.dataset.images;
+            const cardInfosName = cardInfos.dataset.name;
+            const cardInfosType = cardInfos.dataset.type;
+            const cardInfosInfos = cardInfos.dataset.infos;
+            const cardInfosLanguages = cardInfos.dataset.languages;
+            const cardInfosDescription = cardInfos.dataset.description;
+            const cardInfosLink = cardInfos.dataset.link;
+
+            const projectModalContent = document.getElementById('project_modal__content');
+            projectModalContent.innerHTML = `
+                <div class="project_modal__content__top">
+                    <div class="centered-section-item-block">
+                        <img src="./assets/images/icons/tags-purple.png" alt="Icon representing a tag" class="icon-xs" />
+                        <span>${cardInfosTag}</span>
+                    </div>
+                    <img src="${cardInfosImages.illustration}" alt="image of the project '${cardInfosName}'" />
+                </div>
+                <div class="project_modal__content__bottom">
+                    <div class="project_modal__content__bottom__top">
+                        <div class="project_modal__content__bottom__top__left">
+                            <p class="project_modal__content__bottom__top__left__title">${cardInfosName}</p>
+                            <p class="project_modal__content__bottom__top__left__type">${cardInfosType}</p>
+                        </div>
+                        <div class="project_modal__content__bottom__top__right">
+                            <p class="project_modal__content__bottom__top__right__infos">${cardInfosInfos}</p>
+                            <div class="project_modal__content__bottom__top__right__languages">
+                                ${cardInfosLanguages}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project_modal__content__bottom__bottom">
+                        <p class="project_modal__content__bottom__bottom__description">${cardInfosDescription}</p>
+                        <a href="${cardInfosLink}" class="project_modal__content__bottom__bottom__link">Visit the website</a>
+                    </div>
+                </div>
+            `;
+
+            projectModal.classList.toggle('active');
+        })
+    }
+
+    function getLanguagesList(languages) {
+        let portfolioSectionString = "";
+        languages.forEach(language => {
+            portfolioSectionString += `
+                <li>
+                    <img src="${projectImagesDirectoryPath}/icons/${language}.png" alt="Icon of the '${language}' language" />
+                    <span>${language}</span>
+                </li>
+            `;
+        })
+        
+        return portfolioSectionString;
     }
 
 
