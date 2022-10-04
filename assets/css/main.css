@@ -424,6 +424,20 @@ nav div a:hover {
     border-radius: 30px;
 }
 
+#project_modal__content p {
+    color: var(--color-purple);
+    font-weight: bold;
+}
+
+#project_modal__content ul li, #project_modal__content__box__tag {
+    display: flex;
+    align-items: center;
+}
+
+#project_modal__content ul li img, #project_modal__content__box__tag img {
+    margin-right: 10px;
+}
+
 #project_modal__content__close {
     position: absolute;
     top: 20px;

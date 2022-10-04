@@ -5,7 +5,7 @@ window.onload = function () {
     const portfolioInfosContainer = document.getElementById('portfolio_section__projects');
     const projectModal = document.getElementById('project_modal')
     const projectModalClose = document.getElementById('project_modal__content__close')
-    const projectImagesDirectoryPath = './assets/images/projects';
+    const imagesDirectoryPath = './assets/images';
 
     // Refacto import json from another file
     const workInfos = [
@@ -101,6 +101,34 @@ window.onload = function () {
         })
     }
 
+    function getLanguagesList(languages) {
+        console.log(languages)
+        let portfolioLanguagesString = "";
+        languages.forEach(language => {
+            portfolioLanguagesString += `
+                <li>
+                    <img src="${imagesDirectoryPath}/icons/${language.toLowerCase()}.png" alt="Icon of the '${language}' language" class="icon-xs " />
+                    <span>${language}</span>
+                </li>
+            `;
+        })
+        
+        return portfolioLanguagesString;
+    }
+
+    function getProjectInfosList(projectInfos) {
+        let portfolioInfosString = "";
+        projectInfos.forEach(info => {
+            portfolioInfosString += `
+                <li>
+                    <span>${info}</span>
+                </li>
+            `;
+        })
+        
+        return portfolioInfosString;
+    }
+
     function fillQualificationInfoBox(qualificationInfos) {
         qualificationInfosContainer.innerHTML = "";
 
@@ -128,7 +156,7 @@ window.onload = function () {
                 <div class="portfolio_section__projects__card">
                     <div class="portfolio_section__projects__card__top"
                         data-tag="${project.tag}"
-                        data-images="${project.images}"
+                        data-images='${JSON.stringify(project.images)}'
                         data-name="${project.name}"
                         data-type="${project.type}"
                         data-infos="${project.infos}"
@@ -163,61 +191,29 @@ window.onload = function () {
         portfolioCards[i].addEventListener('click', function () {
             const cardInfos = portfolioCards[i].querySelector('.portfolio_section__projects__card__top');
             const cardInfosTag = cardInfos.dataset.tag;
-            const cardInfosImages = cardInfos.dataset.images;
+            const cardInfosImages = JSON.parse(cardInfos.dataset.images);
             const cardInfosName = cardInfos.dataset.name;
             const cardInfosType = cardInfos.dataset.type;
             const cardInfosInfos = cardInfos.dataset.infos;
-            const cardInfosLanguages = cardInfos.dataset.languages;
             const cardInfosDescription = cardInfos.dataset.description;
             const cardInfosLink = cardInfos.dataset.link;
-
+            const splittedProjectLanguages = cardInfos.dataset.languages.split(",");
+            const splittedProjectInfos = cardInfos.dataset.infos.split(",");
             const projectModalContent = document.getElementById('project_modal__content');
-            projectModalContent.innerHTML = `
-                <div class="project_modal__content__top">
-                    <div class="centered-section-item-block">
-                        <img src="./assets/images/icons/tags-purple.png" alt="Icon representing a tag" class="icon-xs" />
-                        <span>${cardInfosTag}</span>
-                    </div>
-                    <img src="${cardInfosImages.illustration}" alt="image of the project '${cardInfosName}'" />
-                </div>
-                <div class="project_modal__content__bottom">
-                    <div class="project_modal__content__bottom__top">
-                        <div class="project_modal__content__bottom__top__left">
-                            <p class="project_modal__content__bottom__top__left__title">${cardInfosName}</p>
-                            <p class="project_modal__content__bottom__top__left__type">${cardInfosType}</p>
-                        </div>
-                        <div class="project_modal__content__bottom__top__right">
-                            <p class="project_modal__content__bottom__top__right__infos">${cardInfosInfos}</p>
-                            <div class="project_modal__content__bottom__top__right__languages">
-                                ${cardInfosLanguages}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project_modal__content__bottom__bottom">
-                        <p class="project_modal__content__bottom__bottom__description">${cardInfosDescription}</p>
-                        <a href="${cardInfosLink}" class="project_modal__content__bottom__bottom__link">Visit the website</a>
-                    </div>
-                </div>
-            `;
 
+            document.getElementById('project_modal__content__box__languages').innerHTML = getLanguagesList(splittedProjectLanguages);
+            document.getElementById('project_modal__content__box__infos').innerHTML = getProjectInfosList(splittedProjectInfos);
+            document.getElementById('project_modal__content__box__tag').querySelector('span').innerHTML = cardInfos.dataset.tag;
+
+            if (cardInfos.dataset.link) {
+                document.getElementById('project_modal__content__box__link').innerHTML = `<a class="cta_button" href="${cardInfos.dataset.link}">
+                    Link to project
+                </a>`
+            }
+            projectModalContent.querySelector('aside').innerHTML = `<img src="${imagesDirectoryPath}/projects/illustrations/${cardInfosImages.illustration.toLowerCase()}.png" alt="image of the project '${cardInfosName}'" />`;
             projectModal.classList.toggle('active');
         })
     }
-
-    function getLanguagesList(languages) {
-        let portfolioSectionString = "";
-        languages.forEach(language => {
-            portfolioSectionString += `
-                <li>
-                    <img src="${projectImagesDirectoryPath}/icons/${language}.png" alt="Icon of the '${language}' language" />
-                    <span>${language}</span>
-                </li>
-            `;
-        })
-        
-        return portfolioSectionString;
-    }
-
 
     projectModalClose.addEventListener('click', function () {
         project_modal.classList.toggle('active');
