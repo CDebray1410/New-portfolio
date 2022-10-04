@@ -190,16 +190,13 @@ window.onload = function () {
     for (let i = 0; i < portfolioCards.length; i++) {
         portfolioCards[i].addEventListener('click', function () {
             const cardInfos = portfolioCards[i].querySelector('.portfolio_section__projects__card__top');
-            const cardInfosTag = cardInfos.dataset.tag;
             const cardInfosImages = JSON.parse(cardInfos.dataset.images);
             const cardInfosName = cardInfos.dataset.name;
-            const cardInfosType = cardInfos.dataset.type;
-            const cardInfosInfos = cardInfos.dataset.infos;
-            const cardInfosDescription = cardInfos.dataset.description;
-            const cardInfosLink = cardInfos.dataset.link;
             const splittedProjectLanguages = cardInfos.dataset.languages.split(",");
             const splittedProjectInfos = cardInfos.dataset.infos.split(",");
             const projectModalContent = document.getElementById('project_modal__content');
+
+            const projectIllustration = cardInfosImages.illustration ? cardInfosImages.illustration.toLowerCase() : 'base';
 
             document.getElementById('project_modal__content__box__languages').innerHTML = getLanguagesList(splittedProjectLanguages);
             document.getElementById('project_modal__content__box__infos').innerHTML = getProjectInfosList(splittedProjectInfos);
@@ -210,7 +207,7 @@ window.onload = function () {
                     Link to project
                 </a>`
             }
-            projectModalContent.querySelector('aside').innerHTML = `<img src="${imagesDirectoryPath}/projects/illustrations/${cardInfosImages.illustration.toLowerCase()}.png" alt="image of the project '${cardInfosName}'" />`;
+            projectModalContent.querySelector('aside').innerHTML = `<img src="${imagesDirectoryPath}/projects/illustrations/${projectIllustration}.png" alt="image of the project '${cardInfosName}'" />`;
             projectModal.classList.toggle('active');
         })
     }

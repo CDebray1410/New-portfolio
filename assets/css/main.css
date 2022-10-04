@@ -412,8 +412,11 @@ nav div a:hover {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
 #project_modal__content {
     position: fixed;
+    display: flex;
+    flex-wrap: wrap;
     top: 10vh;
     left: 5%;
     display: flex;
@@ -424,9 +427,22 @@ nav div a:hover {
     border-radius: 30px;
 }
 
+#project_modal #project_modal__content aside {
+    padding: 30px 0;
+    width: 100%;
+}
+
 #project_modal__content p {
     color: var(--color-purple);
     font-weight: bold;
+}
+
+.project_modal__content__box {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    flex-wrap: wrap;
 }
 
 #project_modal__content ul li, #project_modal__content__box__tag {
