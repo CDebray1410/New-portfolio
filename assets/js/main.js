@@ -3,8 +3,9 @@ window.onload = function () {
     const qualificationButtons = document.querySelectorAll('.qualification_section div.col-6');
     const qualificationInfosContainer = document.getElementById('qualification_section_infos');
     const portfolioInfosContainer = document.getElementById('portfolio_section__projects');
-    const projectModal = document.getElementById('project_modal')
-    const projectModalClose = document.getElementById('project_modal__content__close')
+    const projectModal = document.getElementById('project_modal');
+    const projectModalClose = document.getElementById('project_modal__content__close');
+    const projectFilters = document.getElementsByClassName('portfolio_section__filter_nav')[0];
     const imagesDirectoryPath = './assets/images';
 
     // Refacto import json from another file
@@ -38,7 +39,7 @@ window.onload = function () {
     ]
     const projectsInfos = [
         {
-            'tag': 'Front',
+            'tag': 'Front-end',
             'images': {
                 'image': '',
                 'illustration': ''
@@ -153,17 +154,17 @@ window.onload = function () {
 
         projectsInfos.forEach(project => {
             portfolioSectionString += `
-                <div class="portfolio_section__projects__card">
-                    <div class="portfolio_section__projects__card__top"
-                        data-tag="${project.tag}"
-                        data-images='${JSON.stringify(project.images)}'
-                        data-name="${project.name}"
-                        data-type="${project.type}"
-                        data-infos="${project.infos}"
-                        data-languages="${project.languages}"
-                        data-description="${project.description}"
-                        data-link="${project.link}"
-                    >
+                <div class="portfolio_section__projects__card"
+                    data-tag="${project.tag}"
+                    data-images='${JSON.stringify(project.images)}'
+                    data-name="${project.name}"
+                    data-type="${project.type}"
+                    data-infos="${project.infos}"
+                    data-languages="${project.languages}"
+                    data-description="${project.description}"
+                    data-link="${project.link}"
+                >
+                    <div class="portfolio_section__projects__card__top">
                         <div></div>
                         <div class="centered-section-item-block">
                             <img src="./assets/images/icons/tags-purple.png" alt="Icon representing a tag" class="icon-xs" />
@@ -189,7 +190,7 @@ window.onload = function () {
     const portfolioCards = document.getElementsByClassName('portfolio_section__projects__card');
     for (let i = 0; i < portfolioCards.length; i++) {
         portfolioCards[i].addEventListener('click', function () {
-            const cardInfos = portfolioCards[i].querySelector('.portfolio_section__projects__card__top');
+            const cardInfos = portfolioCards[i];
             const cardInfosImages = JSON.parse(cardInfos.dataset.images);
             const cardInfosName = cardInfos.dataset.name;
             const splittedProjectLanguages = cardInfos.dataset.languages.split(",");
@@ -215,4 +216,23 @@ window.onload = function () {
     projectModalClose.addEventListener('click', function () {
         project_modal.classList.toggle('active');
     })
+
+    projectFilters.querySelectorAll('div').forEach(filterElement => {
+        filterElement.addEventListener('click', function () {
+            const filter = filterElement.textContent.trim();
+            const projectsToShow = filter === 'All' ? portfolioInfosContainer.querySelectorAll(`div[data-tag]`) : portfolioInfosContainer.querySelectorAll(`div[data-tag="${filter}"]`);
+            projectsToShow.forEach(elementToShow => {
+                elementToShow.classList.remove('hidden');
+            });
+            
+            if(filter === 'All') {
+                return;
+            }
+
+            const projectsToHide = portfolioInfosContainer.querySelectorAll(`div[data-tag]:not([data-tag="${filter}"])`);
+            projectsToHide.forEach(elementToHide => {
+                elementToHide.classList.add('hidden');
+            });
+        })
+    });
 }
