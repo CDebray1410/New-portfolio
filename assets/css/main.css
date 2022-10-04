@@ -417,7 +417,7 @@ nav div a:hover {
     position: fixed;
     display: flex;
     flex-wrap: wrap;
-    top: 10vh;
+    top: 2vh;
     left: 5%;
     display: flex;
     flex-wrap: wrap;
@@ -438,6 +438,7 @@ nav div a:hover {
 }
 
 .project_modal__content__box {
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -448,6 +449,9 @@ nav div a:hover {
 #project_modal__content ul li, #project_modal__content__box__tag {
     display: flex;
     align-items: center;
+}
+#project_modal__content__box__tag {
+    position: fixed;
 }
 
 #project_modal__content ul li img, #project_modal__content__box__tag img {

@@ -56,7 +56,7 @@ window.onload = function () {
                 'MySQL'
             ],
             'description': 'A quizz game',
-            'link': ''
+            'link': 'fqsd'
         }
     ];
 
