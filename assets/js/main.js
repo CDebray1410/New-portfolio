@@ -8,102 +8,7 @@ window.onload = function () {
     const projectFilters = document.getElementsByClassName('portfolio_section__filter_nav')[0];
     const imagesDirectoryPath = './assets/images';
 
-    // Refacto import json from another file
-    const workInfos = [
-        {
-            'title': 'Full stack developer',
-            'companyOrSchool': 'Club Employés',
-            'start': '2021',
-            'end': '2022'
-        },
-        {
-            'title': 'Full stack developer',
-            'companyOrSchool': 'Club Employés',
-            'start': '2021',
-            'end': '2022'
-        }
-    ]
-    const educationInfos = [
-        {
-            'title': 'Full stack developer formation',
-            'companyOrSchool': 'Epitech',
-            'start': '2020',
-            'end': '2022'
-        },
-        {
-            'title': 'Developer formation',
-            'companyOrSchool': 'ESGI',
-            'start': '2022',
-            'end': '2023'
-        }
-    ]
-    const projectsInfos = [
-        {
-            'tag': 'Front-end',
-            'images': {
-                'image': '',
-                'illustration': ''
-            },
-            'name': 'Quizz game',
-            'type': 'Type',
-            'infos': [
-                '2 week duration',
-                'In a group of 3',
-                'Quizz website'
-            ],
-            'languages': [
-                'PHP',
-                'Symfony',
-                'MySQL'
-            ],
-            'description': 'A quizz game',
-            'link': 'fqsd'
-        }
-    ];
-
-    dropdownButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            // Change arrow icon to down or up depending on what the previous state of dropdown menu was
-            const buttonDropdownIcon = button.querySelector('img');
-            let buttonDropdownIconSrc = buttonDropdownIcon.src;
-            const buttonDropdownIconState = buttonDropdownIconSrc.includes("bottom");
-            const buttonDropdownPreviousState = buttonDropdownIconState ? "bottom" : "up";
-            const buttonDropdownNewState = buttonDropdownIconState ? "up" : "bottom";
-            
-            let regex = new RegExp(buttonDropdownPreviousState, "g");
-            let newButtonDropdownIconSrc = buttonDropdownIconSrc.replace(regex, buttonDropdownNewState);
-            buttonDropdownIcon.src = newButtonDropdownIconSrc;
-
-            // Display or hide dropdown content
-            button.nextElementSibling.classList.toggle('active')
-        })
-    });
-
-    fillQualificationInfoBox(workInfos);
-
-    for (let index = 0; index < qualificationButtons.length; index++) {
-        const qualificationCategoryButton = qualificationButtons[index];
-
-        qualificationCategoryButton.addEventListener('click', function () {
-            if (qualificationCategoryButton.classList.contains('color-purple')) {
-                return;
-            }
-            // 0 work 1 Qualification
-            const previousSelectedQualficationCategoryButton = index === 1 ? qualificationButtons[0] : qualificationButtons[1];
-            previousSelectedQualficationCategoryButton.classList.toggle('color-purple');
-            qualificationCategoryButton.classList.toggle('color-purple');
-            
-            if (index === 0) {
-                fillQualificationInfoBox(workInfos);
-                return;
-            }
-
-            fillQualificationInfoBox(educationInfos);
-        })
-    }
-
     function getLanguagesList(languages) {
-        console.log(languages)
         let portfolioLanguagesString = "";
         languages.forEach(language => {
             portfolioLanguagesString += `
@@ -183,6 +88,47 @@ window.onload = function () {
         });
 
         portfolioInfosContainer.innerHTML = portfolioSectionString;
+    }
+
+    dropdownButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            // Change arrow icon to down or up depending on what the previous state of dropdown menu was
+            const buttonDropdownIcon = button.querySelector('img');
+            let buttonDropdownIconSrc = buttonDropdownIcon.src;
+            const buttonDropdownIconState = buttonDropdownIconSrc.includes("bottom");
+            const buttonDropdownPreviousState = buttonDropdownIconState ? "bottom" : "up";
+            const buttonDropdownNewState = buttonDropdownIconState ? "up" : "bottom";
+            
+            let regex = new RegExp(buttonDropdownPreviousState, "g");
+            let newButtonDropdownIconSrc = buttonDropdownIconSrc.replace(regex, buttonDropdownNewState);
+            buttonDropdownIcon.src = newButtonDropdownIconSrc;
+
+            // Display or hide dropdown content
+            button.nextElementSibling.classList.toggle('active')
+        })
+    });
+
+    fillQualificationInfoBox(workInfos);
+
+    for (let index = 0; index < qualificationButtons.length; index++) {
+        const qualificationCategoryButton = qualificationButtons[index];
+
+        qualificationCategoryButton.addEventListener('click', function () {
+            if (qualificationCategoryButton.classList.contains('color-purple')) {
+                return;
+            }
+
+            const previousSelectedQualficationCategoryButton = index === 1 ? qualificationButtons[0] : qualificationButtons[1];
+            previousSelectedQualficationCategoryButton.classList.toggle('color-purple');
+            qualificationCategoryButton.classList.toggle('color-purple');
+            
+            if (index === 0) {
+                fillQualificationInfoBox(workInfos);
+                return;
+            }
+
+            fillQualificationInfoBox(educationInfos);
+        })
     }
 
     fillPortfolioSection(projectsInfos);
