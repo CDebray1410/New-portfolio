@@ -1,0 +1,27 @@
+.about_section .about_section_text {
+    line-height: 10px;
+}
+
+.about_section .about_section_stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.about_section .about_section_stats div {
+    text-align: center;
+}
+
+.about_section .about_section_stats div div:nth-child(1) {
+    font-size: var(--font-xxl);
+    font-weight: bold;
+}
+
+.about_section .about_section_stats div div:nth-child(1)::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 3px;
+    margin: 10px auto;
+    background-color: var(--color-purple);
+}

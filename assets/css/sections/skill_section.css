@@ -1,0 +1,23 @@
+.skills_section_dropdown {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.skills_section_dropdown div {
+    text-align: center;
+    width: 100%;
+}
+.skills_section_dropdown .dropdown-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.skills_section_dropdown .dropdown-content {
+    display: none;
+}
+.skills_section_dropdown .dropdown-content.active {
+    display: block;
+}

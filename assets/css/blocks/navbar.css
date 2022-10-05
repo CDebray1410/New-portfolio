@@ -1,0 +1,32 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px rgba(255, 255, 255, 0.2) solid;
+    height: 60px;
+}
+
+nav div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav div a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+nav .navbar__right_side a {
+    padding: 5px 12px;
+}
+
+nav .navbar__left_side a {
+    padding: 5px 25px;
+}
+
+nav div a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

@@ -1,30 +1,88 @@
-.background-purple {
-    background-color: var(--color-purple);
-}
-.background-callToAction {
-    background-color: var(--color-callToAction);
-}
-.background-dblue {
-    background-color: var(--color-dblue);
+:root {
+    --font-sm: 17px;
+    --font-base: 20px;
+    --font-lg: 25px;
+    --font-xl: 30px;
+    --font-xxl: 40px;
+
+    --color-background: #0E0B16;
+    --color-dblue: #4717F6;
+    --color-purple: #7152EC;
+    --color-callToAction: #A239CA;
+    --color-ltext: #CDBDB9;
+    --color-text: #E7DFDD;
+    --color-white-box: #D9D9D9;
+
+    --icon-xs: 30px;
+    --icon-sm: 32px;
+    --icon-lg: 34px;
+    --icon-xl: 40px;
 }
 
-.color-purple {
-    color: var(--color-purple);
-}
-.color-callToAction {
-    color: var(--color-callToAction);
-}
-.color-dblue {
-    color: var(--color-dblue);
-}
-.color-ltext {
-    color: var(--color-ltext);
-}
-.color-text {
-    color: var(--color-text);
-}
+.background-purple {background-color: var(--color-purple);}
+.background-callToAction {background-color: var(--color-callToAction);}
+.background-dblue {background-color: var(--color-dblue);}
+.background-project-box {background-color: var(--color-white-box);}
 
+.color-white {color: white;}
+.color-purple {color: var(--color-purple);}
+.color-purple-hover:hover {color: var(--color-purple);}
+.color-cta {color: var(--color-callToAction);}
+.color-cta-hover:hover {color: var(--color-callToAction);}
+.color-dblue {color: var(--color-dblue);}
+.color-ltext {color: var(--color-ltext);}
+.color-text {color: var(--color-text);}
+
+.icon-xs {
+    width: var(--icon-lg);
+    height: var(--icon-lg);
+}
 .icon-lg {
     width: var(--icon-lg);
     height: var(--icon-lg);
+}
+
+.text-lg {font-size: var(--font-lg);}
+.text-xl {font-size: var(--font-xl);}
+.text-xxl {font-size: var(--font-xxl);}
+
+.text-subtitle {
+    font-weight: 200;
+    font-style: italic;
+    color: var(--color-ltext);
+    margin-top: 10px;
+}
+
+.col-3 {width: 25%;}
+.col-4 {width: 33%;}
+.col-6 {width: 50%;}
+
+.centered-section-items {align-items: center;}
+.centered-section-item-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.section_title {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-size: var(--font-xxl);
+    font-weight: bold;
+}
+
+.cta_button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-callToAction);
+    color: var(--color-text);
+    border-radius: 12px;
+    padding: 11px 15px;
+    font-size: var(--font-lg);
+    font-weight: bold;
+    width: 230px;
+    cursor: pointer;
 }
