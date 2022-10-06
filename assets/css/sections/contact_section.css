@@ -1,10 +1,40 @@
 .contact_section > div {
+    align-items: flex-start;
     background-color: var(--color-white-box);
     color: var(--color-dtext);
-    padding: 30px;
     border-radius: 30px;
 }
 
-.contact_section input {
+.contact_section form {
+    padding: 20px 15px;
+}
+
+.contact_section .contact_section__input_group label, .contact_section .contact_section__input_group input {
+    display: block;
+    width: 100%;
+}
+
+.contact_section .contact_section__input_group input, .contact_section .contact_section__input_group textarea  {
     background-color: var(--color-white-box);
+    border: 1px black solid;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.contact_section .contact_section__input_group label {
+    margin: 20px 0 8px 0;
+    font-weight: bold;
+}
+.contact_section .contact_section__input_group label span {
+    color: var(--color-danger);
+}
+
+.contact_section .cta_button {
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.contact_section .cta_button img {
+    margin-left: 10px;
 }
