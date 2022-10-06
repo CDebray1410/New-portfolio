@@ -4,11 +4,25 @@ footer {
     padding: 20px;
 }
 footer > div {
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     width: 90%;
-    padding: 50px 0;
+    padding: 20px 0;
 }
-.footer__title {
+footer .footer__title {
     font-size: var(--font-xxl);
+}
+
+footer .footer__links div:first-child {
+    display: flex;
+    font-weight: bold;
+}
+
+footer .footer__links div:first-child ul:first-child {
+    padding-right: 40px;
+}
+
+footer .footer__links div:last-child a {
+    padding-right: 20px;
 }

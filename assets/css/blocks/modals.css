@@ -68,4 +68,6 @@
     top: 20px;
     right: 20px;
     cursor: pointer;
+    padding: 10px;
+    font-size: var(--font-xl);
 }

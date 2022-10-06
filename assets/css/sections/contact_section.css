@@ -1,4 +1,4 @@
-.contact_section > div {
+#contact_section > div {
     align-items: flex-start;
     justify-content: normal;
     background-color: var(--color-white-box);
@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-.contact_section aside {
+#contact_section aside {
     position: relative;
     width: 50%;
     height: 800px;
@@ -19,7 +19,7 @@
     
 }
 
-.contact_section aside div div:last-child {
+#contact_section aside div div:last-child {
     margin: 20px 0;
     line-height: 40px;
     font-weight: lighter;
@@ -27,7 +27,7 @@
     color: white;
 }
 
-.contact_section aside::after {
+#contact_section aside::after {
     content: "";
     position: absolute;
     top: 0;
@@ -38,22 +38,22 @@
     background-color: rgba(117, 40, 147, 0.5);
     z-index: 10;
 }
-.contact_section aside > div {
+#contact_section aside > div {
     z-index: 20;
 }
 
-.contact_section form {
+#contact_section form {
     padding: 20px 35px;
     width: 50%;
 }
 
-.contact_section .contact_section__input_group label, .contact_section .contact_section__input_group input, .contact_section .contact_section__input_group textarea {
+#contact_section .contact_section__input_group label, #contact_section .contact_section__input_group input, #contact_section .contact_section__input_group textarea {
     display: block;
     width: 100%;
     font-size: var(--font-base);
 }
 
-.contact_section .contact_section__input_group input, .contact_section .contact_section__input_group textarea  {
+#contact_section .contact_section__input_group input, #contact_section .contact_section__input_group textarea  {
     background-color: var(--color-white-box);
     border: 1px var(--color-input-border) solid;
     padding: 10px;
@@ -62,20 +62,20 @@
     resize: vertical;
 }
 
-.contact_section .contact_section__input_group label {
+#contact_section .contact_section__input_group label {
     margin: 20px 0 8px 0;
     font-weight: bold;
 }
-.contact_section .contact_section__input_group label span {
+#contact_section .contact_section__input_group label span {
     color: var(--color-danger);
 }
 
-.contact_section .cta_button {
+#contact_section .cta_button {
     width: 100%;
     justify-content: center;
     margin-top: 20px;
 }
 
-.contact_section .cta_button img {
+#contact_section .cta_button img {
     margin-left: 10px;
 }

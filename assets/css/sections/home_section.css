@@ -1,8 +1,8 @@
-.home_section aside img {
+#home_section aside img {
     width: 250px;
 }
 
-.home_section div:first-child div:nth-child(3) {
+#home_section div:first-child div:nth-child(3) {
     margin: 20px 0;
     line-height: 40px;
     font-weight: lighter;

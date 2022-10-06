@@ -1,20 +1,20 @@
-.qualification_section div.col-6 {
+#qualification_section div.col-6 {
     display: flex;
     align-items: center;
     font-size: var(--font-xl);
     cursor: pointer;
 }
-.qualification_section div.col-6 span {
+#qualification_section div.col-6 span {
     padding-left: 15px;
 }
 
-.qualification_section #qualification_section_infos {
+#qualification_section #qualification_section_infos {
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
 
-.qualification_section .qualification_section_infos__box {
+#qualification_section .qualification_section_infos__box {
     padding-top: 55px;
     position: relative;
 }
@@ -29,19 +29,19 @@
     border-radius: 50%;
 }
 
-.qualification_section .qualification_section_infos__box div:first-of-type p:first-child {
+#qualification_section .qualification_section_infos__box div:first-of-type p:first-child {
     font-weight: bold;
     padding: 0 0;
     margin: 0;
     margin-top: 25px;
 }
-.qualification_section .qualification_section_infos__box div:first-of-type p:last-child {
+#qualification_section .qualification_section_infos__box div:first-of-type p:last-child {
     font-style: oblique;
     font-weight: 300;
     margin: 0;
     margin-top: 5px;
 }
-.qualification_section .qualification_section_infos__box > p:last-child {
+#qualification_section .qualification_section_infos__box > p:last-child {
     font-weight: lighter;
     font-style: italic;
     color: var(--color-ltext);

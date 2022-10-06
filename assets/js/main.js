@@ -1,6 +1,6 @@
 window.onload = function () {
     const dropdownButtons = document.querySelectorAll('.dropdown-button');
-    const qualificationButtons = document.querySelectorAll('.qualification_section div.col-6');
+    const qualificationButtons = document.querySelectorAll('#qualification_section div.col-6');
     const qualificationInfosContainer = document.getElementById('qualification_section_infos');
     const portfolioInfosContainer = document.getElementById('portfolio_section__projects');
     const projectModal = document.getElementById('project_modal');

@@ -1,9 +1,14 @@
 nav {
+    position: fixed;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px rgba(255, 255, 255, 0.2) solid;
     height: 60px;
+    width: 100%;
+    background-color: var(--color-background);
+    z-index: 100;
 }
 
 nav div {
