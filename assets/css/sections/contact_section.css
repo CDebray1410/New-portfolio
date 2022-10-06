@@ -1,24 +1,65 @@
 .contact_section > div {
     align-items: flex-start;
+    justify-content: normal;
     background-color: var(--color-white-box);
     color: var(--color-dtext);
     border-radius: 30px;
+    width: 100%;
+}
+
+.contact_section aside {
+    position: relative;
+    width: 50%;
+    height: 800px;
+    background-image: url('../../images/contact_project_big.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 30px 0 0 30px;
+    
+}
+
+.contact_section aside div div:last-child {
+    margin: 20px 0;
+    line-height: 40px;
+    font-weight: lighter;
+    color: var(--color-ltext);
+    color: white;
+}
+
+.contact_section aside::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px 0 0 30px;
+    background-color: rgba(117, 40, 147, 0.5);
+    z-index: 10;
+}
+.contact_section aside > div {
+    z-index: 20;
 }
 
 .contact_section form {
-    padding: 20px 15px;
+    padding: 20px 35px;
+    width: 50%;
 }
 
-.contact_section .contact_section__input_group label, .contact_section .contact_section__input_group input {
+.contact_section .contact_section__input_group label, .contact_section .contact_section__input_group input, .contact_section .contact_section__input_group textarea {
     display: block;
     width: 100%;
+    font-size: var(--font-base);
 }
 
 .contact_section .contact_section__input_group input, .contact_section .contact_section__input_group textarea  {
     background-color: var(--color-white-box);
-    border: 1px black solid;
+    border: 1px var(--color-input-border) solid;
     padding: 10px;
     border-radius: 10px;
+    width: 100%;
+    resize: vertical;
 }
 
 .contact_section .contact_section__input_group label {

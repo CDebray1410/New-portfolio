@@ -1,4 +1,5 @@
 footer {
+    margin-top: 60px;
     background-color: var(--color-purple);
     padding: 20px;
 }
