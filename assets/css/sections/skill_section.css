@@ -1,3 +1,14 @@
+#skills_section > div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#skills_section > aside {
+    display: flex;
+    justify-content: center;
+}
+
 .skills_section_dropdown {
     display: flex;
     flex-wrap: wrap;

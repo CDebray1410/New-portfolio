@@ -25,3 +25,7 @@
     margin: 10px auto;
     background-color: var(--color-purple);
 }
+
+#about_section .cta_button {
+    margin-top: 20px;
+}

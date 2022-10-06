@@ -1,6 +1,6 @@
 window.onload = function () {
     const dropdownButtons = document.querySelectorAll('.dropdown-button');
-    const qualificationButtons = document.querySelectorAll('#qualification_section div.col-6');
+    const qualificationButtons = document.querySelectorAll('#qualification_section .qualification_section__filter');
     const qualificationInfosContainer = document.getElementById('qualification_section_infos');
     const portfolioInfosContainer = document.getElementById('portfolio_section__projects');
     const projectModal = document.getElementById('project_modal');
@@ -42,12 +42,12 @@ window.onload = function () {
         qualificationInfos.forEach(qualification => {
             infosBoxString += `
                 <div class="qualification_section_infos__box">
-                    <span class="qualification_section_infos__box__pellet"></span>
                     <div>
                         <p>${qualification.title}</p>
                         <p>${qualification.companyOrSchool}</p>
+                        <p>${qualification.start} - ${qualification.end}</p>
+                        <span class="qualification_section_infos__box__pellet"></span>
                     </div>
-                    <p>${qualification.start} - ${qualification.end}</p>
                 </div>
             `
         });
