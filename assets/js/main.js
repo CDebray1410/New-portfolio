@@ -119,6 +119,13 @@ window.onload = function () {
             }
 
             const previousSelectedQualficationCategoryButton = index === 1 ? qualificationButtons[0] : qualificationButtons[1];
+            const qualificationIllustration = document.getElementById('qualification_section__illustration');
+            const previousQualficationIllustrationName = index === 1 ? "education" : "working";
+            const newQualficationIllustrationName = index === 1 ? "working" : "education";
+            let regex = new RegExp(previousQualficationIllustrationName, "g");
+            let newQualficationIllustration = qualificationIllustration.src.replace(regex, newQualficationIllustrationName);
+            qualificationIllustration.src = newQualficationIllustration;
+
             previousSelectedQualficationCategoryButton.classList.toggle('color-purple');
             qualificationCategoryButton.classList.toggle('color-purple');
             
