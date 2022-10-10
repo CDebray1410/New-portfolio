@@ -53,13 +53,19 @@
     font-size: var(--font-base);
 }
 
-#contact_section .contact_section__input_group input, #contact_section .contact_section__input_group textarea  {
-    background-color: var(--color-white-box);
-    border: 1px var(--color-input-border) solid;
+#contact_section .contact_section__input_group input, #contact_section .contact_section__input_group textarea {
+    background-color: var(--color-input);
+    border: 1px var(--color-white-box) solid;
+    outline: none;
     padding: 10px;
     border-radius: 10px;
     width: 100%;
     resize: vertical;
+}
+
+#contact_section .contact_section__input_group input:focus, #contact_section .contact_section__input_group textarea:focus {
+    background-color: var(--color-white-box);
+    border: 1px var(--color-callToAction) solid;
 }
 
 #contact_section .contact_section__input_group label {
