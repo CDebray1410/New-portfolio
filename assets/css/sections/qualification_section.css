@@ -16,7 +16,6 @@
 }
 
 #qualification_section #qualification_section_infos {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -32,6 +31,7 @@
 
 #qualification_section .qualification_section_infos__box > div {
     position: relative;
+    width: 200px;
 }
 
 .qualification_section_infos__box__pellet {

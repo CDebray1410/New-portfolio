@@ -120,8 +120,9 @@ window.onload = function () {
 
             const previousSelectedQualficationCategoryButton = index === 1 ? qualificationButtons[0] : qualificationButtons[1];
             const qualificationIllustration = document.getElementById('qualification_section__illustration');
-            const previousQualficationIllustrationName = index === 1 ? "education" : "working";
-            const newQualficationIllustrationName = index === 1 ? "working" : "education";
+            const newQualficationIllustrationName = index === 1 ? "education" : "working";
+            const previousQualficationIllustrationName = index === 1 ? "working" : "education";
+            console.error(newQualficationIllustrationName)
             let regex = new RegExp(previousQualficationIllustrationName, "g");
             let newQualficationIllustration = qualificationIllustration.src.replace(regex, newQualficationIllustrationName);
             qualificationIllustration.src = newQualficationIllustration;
@@ -155,6 +156,7 @@ window.onload = function () {
             document.getElementById('project_modal__content__box__languages').innerHTML = getLanguagesList(splittedProjectLanguages);
             document.getElementById('project_modal__content__box__infos').innerHTML = getProjectInfosList(splittedProjectInfos);
             document.getElementById('project_modal__content__box__tag').querySelector('span').innerHTML = cardInfos.dataset.tag;
+            document.getElementById('project_modal__content__box__description').innerHTML = cardInfos.dataset.description;
 
             if (cardInfos.dataset.link) {
                 document.getElementById('project_modal__content__box__link').innerHTML = `<a class="cta_button" href="${cardInfos.dataset.link}">

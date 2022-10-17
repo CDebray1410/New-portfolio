@@ -9,6 +9,10 @@
     justify-content: center;
 }
 
+#skills_section > aside img {
+    height: 320px;
+}
+
 .skills_section_dropdown {
     display: flex;
     flex-wrap: wrap;

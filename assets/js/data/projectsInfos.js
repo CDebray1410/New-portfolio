@@ -18,6 +18,6 @@ const projectsInfos = [
             'MySQL'
         ],
         'description': 'A quizz game',
-        'link': 'fqsd'
+        'link': ''
     }
 ];

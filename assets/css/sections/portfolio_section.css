@@ -4,8 +4,12 @@
     margin: 15px 0;
 }
 .portfolio_section__filter_nav div {
+    width: 120px;
     text-align: center;
     cursor: pointer;
+    background-color: var(--color-white-box);
+    color: black;
+    padding: 5px 10px;
 }
 .portfolio_section__filter_nav div:hover {
     color: var(--color-purple);
